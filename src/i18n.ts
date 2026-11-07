@@ -1,0 +1,267 @@
+// Window strings in the original agent's seven languages. Keys are the English text;
+// each row is [es, pt, de, fr, jp, it]. `{name}` placeholders are filled by t().
+
+const ORDER = ["es", "pt", "de", "fr", "jp", "it"] as const;
+type Row = [string, string, string, string, string, string];
+
+const TABLE: Record<string, Row> = {
+  Save: ["Guardar", "Salvar", "Speichern", "Enregistrer", "保存", "Salva"],
+  Cancel: ["Cancelar", "Cancelar", "Abbrechen", "Annuler", "キャンセル", "Annulla"],
+  "Saved.": ["Guardado.", "Salvo.", "Gespeichert.", "Enregistré.", "保存しました。", "Salvato."],
+  "Not saved: {error}": ["No se guardó: {error}", "Não salvo: {error}", "Nicht gespeichert: {error}", "Non enregistré : {error}", "保存できません: {error}", "Non salvato: {error}"],
+  Enabled: ["Activado", "Ativado", "Aktiviert", "Activé", "有効", "Attivo"],
+
+  // Sign in
+  "Sign in to TRIGGERcmd": ["Inicia sesión en TRIGGERcmd", "Entre no TRIGGERcmd", "Bei TRIGGERcmd anmelden", "Connexion à TRIGGERcmd", "TRIGGERcmd にサインイン", "Accedi a TRIGGERcmd"],
+  'Your token is under the "Instructions" link in your TRIGGERcmd account.': [
+    'Tu token está en el enlace "Instructions" de tu cuenta de TRIGGERcmd.',
+    'Seu token está no link "Instructions" da sua conta TRIGGERcmd.',
+    'Dein Token steht unter dem Link „Instructions“ in deinem TRIGGERcmd-Konto.',
+    "Votre jeton se trouve sous le lien « Instructions » de votre compte TRIGGERcmd.",
+    "トークンは TRIGGERcmd アカウントの「Instructions」リンクにあります。",
+    'Il tuo token si trova nel link "Instructions" del tuo account TRIGGERcmd.',
+  ],
+  Token: ["Token", "Token", "Token", "Jeton", "トークン", "Token"],
+  "Paste your token": ["Pega tu token", "Cole seu token", "Token einfügen", "Collez votre jeton", "トークンを貼り付け", "Incolla il token"],
+  "Computer name (optional)": ["Nombre del equipo (opcional)", "Nome do computador (opcional)", "Computername (optional)", "Nom de l'ordinateur (facultatif)", "コンピューター名（任意）", "Nome del computer (facoltativo)"],
+  "Leave blank to use this computer's name.": ["Déjalo vacío para usar el nombre de este equipo.", "Deixe em branco para usar o nome deste computador.", "Leer lassen, um den Namen dieses Computers zu verwenden.", "Laissez vide pour utiliser le nom de cet ordinateur.", "空欄にするとこのコンピューターの名前を使います。", "Lascia vuoto per usare il nome di questo computer."],
+  "Sign In": ["Iniciar sesión", "Entrar", "Anmelden", "Se connecter", "サインイン", "Accedi"],
+  "Signing in…": ["Iniciando sesión…", "Entrando…", "Anmeldung…", "Connexion…", "サインインしています…", "Accesso…"],
+  "That token was refused. Copy it again from the Instructions page.": [
+    "Ese token fue rechazado. Cópialo de nuevo desde la página Instructions.",
+    "Esse token foi recusado. Copie-o novamente da página Instructions.",
+    "Dieses Token wurde abgelehnt. Kopiere es erneut von der Instructions-Seite.",
+    "Ce jeton a été refusé. Copiez-le à nouveau depuis la page Instructions.",
+    "トークンが拒否されました。Instructions ページからもう一度コピーしてください。",
+    "Il token è stato rifiutato. Copialo di nuovo dalla pagina Instructions.",
+  ],
+  "You must subscribe before adding another computer.": [
+    "Debes suscribirte antes de agregar otro equipo.",
+    "Você precisa assinar antes de adicionar outro computador.",
+    "Du musst ein Abo abschließen, bevor du einen weiteren Computer hinzufügst.",
+    "Vous devez vous abonner avant d'ajouter un autre ordinateur.",
+    "別のコンピューターを追加するには購読が必要です。",
+    "Devi abbonarti prima di aggiungere un altro computer.",
+  ],
+  "Could not reach TRIGGERcmd: {detail}": ["No se pudo conectar con TRIGGERcmd: {detail}", "Não foi possível acessar o TRIGGERcmd: {detail}", "TRIGGERcmd nicht erreichbar: {detail}", "Impossible de joindre TRIGGERcmd : {detail}", "TRIGGERcmd に接続できません: {detail}", "Impossibile raggiungere TRIGGERcmd: {detail}"],
+  "Open TRIGGERcmd.com": ["Abrir TRIGGERcmd.com", "Abrir TRIGGERcmd.com", "TRIGGERcmd.com öffnen", "Ouvrir TRIGGERcmd.com", "TRIGGERcmd.com を開く", "Apri TRIGGERcmd.com"],
+
+  // Command editor
+  Commands: ["Comandos", "Comandos", "Befehle", "Commandes", "コマンド", "Comandi"],
+  "{n} commands": ["{n} comandos", "{n} comandos", "{n} Befehle", "{n} commandes", "{n} 件のコマンド", "{n} comandi"],
+  "Search commands": ["Buscar comandos", "Buscar comandos", "Befehle suchen", "Rechercher", "コマンドを検索", "Cerca comandi"],
+  "Sort by": ["Ordenar por", "Ordenar por", "Sortieren nach", "Trier par", "並べ替え", "Ordina per"],
+  Trigger: ["Disparador", "Gatilho", "Auslöser", "Déclencheur", "トリガー", "Trigger"],
+  Command: ["Comando", "Comando", "Befehl", "Commande", "コマンド", "Comando"],
+  "Open an app": ["Abrir una app", "Abrir um app", "App öffnen", "Ouvrir une app", "アプリを開く", "Apri un'app"],
+  "Search apps": ["Buscar apps", "Buscar apps", "Apps suchen", "Rechercher des apps", "アプリを検索", "Cerca app"],
+  "No apps found on this computer.": ["No se encontraron apps en este equipo.", "Nenhum app encontrado neste computador.", "Auf diesem Computer wurden keine Apps gefunden.", "Aucune app trouvée sur cet ordinateur.", "このコンピューターにアプリが見つかりません。", "Nessuna app trovata su questo computer."],
+  "Click to put it at the cursor": ["Haz clic para ponerlo en el cursor", "Clique para inserir no cursor", "Zum Einfügen an der Cursorposition klicken", "Cliquez pour l'insérer au curseur", "クリックしてカーソル位置に挿入", "Fai clic per inserirlo nel cursore"],
+  Ground: ["Plano", "Plano", "Ebene", "Plan", "実行場所", "Piano"],
+  Ascending: ["Ascendente", "Crescente", "Aufsteigend", "Croissant", "昇順", "Crescente"],
+  Descending: ["Descendente", "Decrescente", "Absteigend", "Décroissant", "降順", "Decrescente"],
+  "Add command": ["Añadir comando", "Adicionar comando", "Befehl hinzufügen", "Ajouter une commande", "コマンドを追加", "Aggiungi comando"],
+  "Browse examples": ["Ver ejemplos", "Ver exemplos", "Beispiele ansehen", "Parcourir les exemples", "例を見る", "Sfoglia esempi"],
+  "Computer list": ["Lista de equipos", "Lista de computadores", "Computerliste", "Liste d'ordinateurs", "コンピューター一覧", "Elenco computer"],
+  "Run here": ["Ejecutar aquí", "Executar aqui", "Hier ausführen", "Exécuter ici", "ここで実行", "Esegui qui"],
+  Edit: ["Editar", "Editar", "Bearbeiten", "Modifier", "編集", "Modifica"],
+  Delete: ["Eliminar", "Excluir", "Löschen", "Supprimer", "削除", "Elimina"],
+  "Delete {name}?": ["¿Eliminar {name}?", "Excluir {name}?", "{name} löschen?", "Supprimer {name} ?", "{name} を削除しますか？", "Eliminare {name}?"],
+  "It is removed from this computer and from your account.": [
+    "Se quita de este equipo y de tu cuenta.",
+    "Ele é removido deste computador e da sua conta.",
+    "Er wird von diesem Computer und aus deinem Konto entfernt.",
+    "Elle est retirée de cet ordinateur et de votre compte.",
+    "このコンピューターとアカウントから削除されます。",
+    "Viene rimosso da questo computer e dal tuo account.",
+  ],
+  "No commands yet.": ["Aún no hay comandos.", "Ainda não há comandos.", "Noch keine Befehle.", "Aucune commande.", "コマンドはまだありません。", "Nessun comando."],
+  "Add one, or start from an example.": ["Añade uno o empieza con un ejemplo.", "Adicione um ou comece por um exemplo.", "Füge einen hinzu oder starte mit einem Beispiel.", "Ajoutez-en une ou partez d'un exemple.", "追加するか、例から始めましょう。", "Aggiungine uno o parti da un esempio."],
+  "Nothing matches “{q}”.": ["Nada coincide con «{q}».", "Nada corresponde a “{q}”.", "Nichts passt zu „{q}“.", "Rien ne correspond à « {q} ».", "「{q}」に一致するものはありません。", "Nessun risultato per “{q}”."],
+  "Started {name}.": ["{name} iniciado.", "{name} iniciado.", "{name} gestartet.", "{name} lancé.", "{name} を実行しました。", "{name} avviato."],
+  "Add a command": ["Añadir un comando", "Adicionar um comando", "Befehl hinzufügen", "Ajouter une commande", "コマンドを追加", "Aggiungi un comando"],
+  "Edit command": ["Editar comando", "Editar comando", "Befehl bearbeiten", "Modifier la commande", "コマンドを編集", "Modifica comando"],
+  "Trigger name": ["Nombre del disparador", "Nome do gatilho", "Auslösername", "Nom du déclencheur", "トリガー名", "Nome del trigger"],
+  "Your command": ["Tu comando", "Seu comando", "Dein Befehl", "Votre commande", "実行するコマンド", "Il tuo comando"],
+  "Off Command": ["Comando de apagado", "Comando de desligar", "Aus-Befehl", "Commande d'arrêt", "オフコマンド", "Comando di spegnimento"],
+  "If filled, runs instead of Command when off is the parameter": [
+    "Si se rellena, se ejecuta en lugar de Comando cuando el parámetro es off",
+    "Se preenchido, roda no lugar do Comando quando o parâmetro é off",
+    "Falls ausgefüllt, läuft er statt Befehl, wenn der Parameter off ist",
+    "Si rempli, s'exécute à la place de Commande quand le paramètre est off",
+    "入力すると、パラメーターが off のときにコマンドの代わりに実行されます",
+    "Se compilato, viene eseguito al posto di Comando quando il parametro è off",
+  ],
+  foreground: ["primer plano", "primeiro plano", "Vordergrund", "premier plan", "フォアグラウンド", "primo piano"],
+  background: ["segundo plano", "segundo plano", "Hintergrund", "arrière-plan", "バックグラウンド", "background"],
+  Voice: ["Voz", "Voz", "Sprache", "Voix", "音声", "Voce"],
+  "Word you'll say to Alexa or Google (optional)": ["Palabra que dirás a Alexa o Google (opcional)", "Palavra que você dirá à Alexa ou ao Google (opcional)", "Wort, das du Alexa oder Google sagst (optional)", "Mot que vous direz à Alexa ou Google (facultatif)", "Alexa や Google に話しかける言葉（任意）", "Parola che dirai ad Alexa o Google (facoltativo)"],
+  "Voice/MCP Reply": ["Respuesta de voz/MCP", "Resposta de voz/MCP", "Sprach-/MCP-Antwort", "Réponse vocale/MCP", "音声/MCP の返答", "Risposta vocale/MCP"],
+  "The old Alexa skills and MCP will say this back (optional)": [
+    "Las skills antiguas de Alexa y MCP dirán esto (opcional)",
+    "As skills antigas da Alexa e o MCP dirão isso (opcional)",
+    "Die alten Alexa-Skills und MCP sagen das zurück (optional)",
+    "Les anciennes skills Alexa et MCP le répondront (facultatif)",
+    "旧 Alexa スキルと MCP がこれを読み上げます（任意）",
+    "Le vecchie skill Alexa e MCP risponderanno così (facoltativo)",
+  ],
+  "MCP Tool Description": ["Descripción para MCP", "Descrição para MCP", "MCP-Werkzeugbeschreibung", "Description de l'outil MCP", "MCP ツールの説明", "Descrizione strumento MCP"],
+  "How AI should use this command and parameters (optional)": [
+    "Cómo debe usar la IA este comando y sus parámetros (opcional)",
+    "Como a IA deve usar este comando e parâmetros (opcional)",
+    "Wie KI diesen Befehl und seine Parameter nutzen soll (optional)",
+    "Comment l'IA doit utiliser cette commande et ses paramètres (facultatif)",
+    "AI がこのコマンドとパラメーターをどう使うか（任意）",
+    "Come l'IA deve usare questo comando e i parametri (facoltativo)",
+  ],
+  "Allow Parameters": ["Permitir parámetros", "Permitir parâmetros", "Parameter zulassen", "Autoriser les paramètres", "パラメーターを許可", "Consenti parametri"],
+  "Quote Parameters": ["Entrecomillar parámetros", "Colocar parâmetros entre aspas", "Parameter in Anführungszeichen", "Mettre les paramètres entre guillemets", "パラメーターを引用符で囲む", "Parametri tra virgolette"],
+  Icon: ["Ícono", "Ícone", "Symbol", "Icône", "アイコン", "Icona"],
+  "Optional. Pick an emoji to identify this command.": [
+    "Opcional. Elige un emoji para identificar este comando.",
+    "Opcional. Escolha um emoji para identificar este comando.",
+    "Optional. Wähle ein Emoji, um diesen Befehl zu erkennen.",
+    "Facultatif. Choisissez un emoji pour identifier cette commande.",
+    "任意。このコマンドを識別する絵文字を選びます。",
+    "Facoltativo. Scegli un'emoji per identificare questo comando.",
+  ],
+  "No icon": ["Sin ícono", "Sem ícone", "Kein Symbol", "Aucune icône", "アイコンなし", "Nessuna icona"],
+  "Search icons": ["Buscar íconos", "Buscar ícones", "Symbole suchen", "Rechercher des icônes", "アイコンを検索", "Cerca icone"],
+  Suggested: ["Sugeridos", "Sugeridos", "Vorschläge", "Suggestions", "おすすめ", "Suggerite"],
+  "How to use background commands": ["Cómo usar comandos en segundo plano", "Como usar comandos em segundo plano", "So nutzt du Hintergrundbefehle", "Utiliser les commandes en arrière-plan", "バックグラウンドコマンドの使い方", "Come usare i comandi in background"],
+  "How to use Off Command": ["Cómo usar el comando de apagado", "Como usar o comando de desligar", "So nutzt du den Aus-Befehl", "Utiliser la commande d'arrêt", "オフコマンドの使い方", "Come usare il comando di spegnimento"],
+  "How to use Voice/MCP Reply field": ["Cómo usar la respuesta de voz/MCP", "Como usar a resposta de voz/MCP", "So nutzt du die Sprach-/MCP-Antwort", "Utiliser la réponse vocale/MCP", "音声/MCP の返答の使い方", "Come usare la risposta vocale/MCP"],
+  "Another command already uses this trigger.": ["Otro comando ya usa este disparador.", "Outro comando já usa este gatilho.", "Ein anderer Befehl nutzt diesen Auslöser schon.", "Une autre commande utilise déjà ce déclencheur.", "このトリガーは別のコマンドで使われています。", "Un altro comando usa già questo trigger."],
+  "A trigger and a command are required.": ["Se necesitan un disparador y un comando.", "Um gatilho e um comando são obrigatórios.", "Auslöser und Befehl sind erforderlich.", "Un déclencheur et une commande sont requis.", "トリガーとコマンドは必須です。", "Servono un trigger e un comando."],
+  "Off Command needs parameters allowed.": ["El comando de apagado requiere permitir parámetros.", "O comando de desligar exige parâmetros permitidos.", "Der Aus-Befehl braucht zugelassene Parameter.", "La commande d'arrêt nécessite d'autoriser les paramètres.", "オフコマンドにはパラメーターの許可が必要です。", "Il comando di spegnimento richiede i parametri consentiti."],
+  "macOS has no background service, so commands run in the foreground.": [
+    "macOS no tiene servicio en segundo plano; los comandos se ejecutan en primer plano.",
+    "O macOS não tem serviço em segundo plano; os comandos rodam em primeiro plano.",
+    "macOS hat keinen Hintergrunddienst, Befehle laufen im Vordergrund.",
+    "macOS n'a pas de service en arrière-plan : les commandes s'exécutent au premier plan.",
+    "macOS にはバックグラウンドサービスがないため、フォアグラウンドで実行します。",
+    "macOS non ha un servizio in background: i comandi girano in primo piano.",
+  ],
+  params: ["parámetros", "parâmetros", "Parameter", "paramètres", "パラメーター", "parametri"],
+
+  // Examples
+  "Example Commands": ["Comandos de ejemplo", "Comandos de exemplo", "Beispielbefehle", "Exemples de commandes", "コマンドの例", "Comandi di esempio"],
+  "Search examples": ["Buscar ejemplos", "Buscar exemplos", "Beispiele suchen", "Rechercher des exemples", "例を検索", "Cerca esempi"],
+  Name: ["Nombre", "Nome", "Name", "Nom", "名前", "Nome"],
+  "Operating System": ["Sistema operativo", "Sistema operacional", "Betriebssystem", "Système d'exploitation", "OS", "Sistema operativo"],
+  Add: ["Añadir", "Adicionar", "Hinzufügen", "Ajouter", "追加", "Aggiungi"],
+  "Added {name}.": ["{name} añadido.", "{name} adicionado.", "{name} hinzugefügt.", "{name} ajouté.", "{name} を追加しました。", "{name} aggiunto."],
+  Refresh: ["Actualizar", "Atualizar", "Aktualisieren", "Actualiser", "更新", "Aggiorna"],
+  Clear: ["Borrar", "Limpar", "Leeren", "Effacer", "クリア", "Cancella"],
+  "Clear activity?": ["¿Borrar la actividad?", "Limpar a atividade?", "Aktivität leeren?", "Effacer l'activité ?", "アクティビティをクリアしますか？", "Cancellare l'attività?"],
+  "This removes every run and its output from this computer. It can't be undone.": [
+    "Esto elimina todas las ejecuciones y su salida de este equipo. No se puede deshacer.",
+    "Isso remove todas as execuções e suas saídas deste computador. Não é possível desfazer.",
+    "Das entfernt alle Ausführungen und ihre Ausgaben von diesem Computer. Das lässt sich nicht rückgängig machen.",
+    "Cela supprime toutes les exécutions et leur sortie de cet ordinateur. Cette action est irréversible.",
+    "このコンピューターからすべての実行履歴と出力を削除します。元に戻せません。",
+    "Rimuove tutte le esecuzioni e il loro output da questo computer. L'operazione non può essere annullata.",
+  ],
+  "No examples downloaded yet.": ["Aún no se descargaron ejemplos.", "Nenhum exemplo baixado ainda.", "Noch keine Beispiele geladen.", "Aucun exemple téléchargé.", "例はまだダウンロードされていません。", "Nessun esempio scaricato."],
+  All: ["Todos", "Todos", "Alle", "Tous", "すべて", "Tutti"],
+  "This computer": ["Este equipo", "Este computador", "Dieser Computer", "Cet ordinateur", "このコンピューター", "Questo computer"],
+
+  // Text editor
+  "Saved {n} commands.": ["{n} comandos guardados.", "{n} comandos salvos.", "{n} Befehle gespeichert.", "{n} commandes enregistrées.", "{n} 件のコマンドを保存しました。", "{n} comandi salvati."],
+  "Unsaved changes": ["Cambios sin guardar", "Alterações não salvas", "Ungespeicherte Änderungen", "Modifications non enregistrées", "未保存の変更", "Modifiche non salvate"],
+  File: ["Archivo", "Arquivo", "Datei", "Fichier", "ファイル", "File"],
+
+  // Home Assistant
+  "Home Assistant": ["Home Assistant", "Home Assistant", "Home Assistant", "Home Assistant", "Home Assistant", "Home Assistant"],
+  "Run commands from Home Assistant on your own network, without the round trip through triggercmd.com.": [
+    "Ejecuta comandos desde Home Assistant en tu red, sin pasar por triggercmd.com.",
+    "Execute comandos do Home Assistant na sua rede, sem passar pelo triggercmd.com.",
+    "Befehle direkt aus Home Assistant im eigenen Netz ausführen, ohne Umweg über triggercmd.com.",
+    "Exécutez des commandes depuis Home Assistant sur votre réseau, sans passer par triggercmd.com.",
+    "triggercmd.com を経由せず、ネットワーク内の Home Assistant から直接コマンドを実行します。",
+    "Esegui comandi da Home Assistant sulla tua rete, senza passare da triggercmd.com.",
+  ],
+  "Home Assistant URL": ["URL de Home Assistant", "URL do Home Assistant", "Home Assistant-URL", "URL de Home Assistant", "Home Assistant の URL", "URL di Home Assistant"],
+  "Long-lived access token": ["Token de acceso de larga duración", "Token de acesso de longa duração", "Langlebiges Zugriffstoken", "Jeton d'accès longue durée", "長期アクセストークン", "Token di accesso a lunga durata"],
+  "Create one in Home Assistant under your profile → Security.": [
+    "Créalo en Home Assistant en tu perfil → Seguridad.",
+    "Crie um no Home Assistant em seu perfil → Segurança.",
+    "Erstelle eines in Home Assistant unter Profil → Sicherheit.",
+    "Créez-en un dans Home Assistant via votre profil → Sécurité.",
+    "Home Assistant のプロフィール → セキュリティで作成します。",
+    "Crealo in Home Assistant da profilo → Sicurezza.",
+  ],
+  "Connected to Home Assistant.": ["Conectado a Home Assistant.", "Conectado ao Home Assistant.", "Mit Home Assistant verbunden.", "Connecté à Home Assistant.", "Home Assistant に接続しました。", "Connesso a Home Assistant."],
+  "Not connected.": ["Sin conexión.", "Não conectado.", "Nicht verbunden.", "Non connecté.", "未接続です。", "Non connesso."],
+  "Switches named {prefix}<trigger> run the matching command.": [
+    "Los interruptores llamados {prefix}<disparador> ejecutan el comando correspondiente.",
+    "Interruptores chamados {prefix}<gatilho> executam o comando correspondente.",
+    "Schalter namens {prefix}<auslöser> führen den passenden Befehl aus.",
+    "Les interrupteurs nommés {prefix}<déclencheur> exécutent la commande correspondante.",
+    "{prefix}<トリガー> という名前のスイッチで対応するコマンドを実行します。",
+    "Gli interruttori chiamati {prefix}<trigger> eseguono il comando corrispondente.",
+  ],
+
+  // HomeKit
+  "Apple HomeKit": ["Apple HomeKit", "Apple HomeKit", "Apple HomeKit", "Apple HomeKit", "Apple HomeKit", "Apple HomeKit"],
+  "Each command appears in the Home app as a light. On runs the command, off runs its Off Command, and with parameters allowed the brightness is passed along.": [
+    "Cada comando aparece en la app Casa como una luz. Encender ejecuta el comando, apagar ejecuta el comando de apagado y, con parámetros permitidos, se envía el brillo.",
+    "Cada comando aparece no app Casa como uma luz. Ligar executa o comando, desligar executa o comando de desligar e, com parâmetros, o brilho é enviado.",
+    "Jeder Befehl erscheint in der Home-App als Licht. Ein führt den Befehl aus, Aus den Aus-Befehl, und mit Parametern wird die Helligkeit übergeben.",
+    "Chaque commande apparaît dans l'app Maison comme une lampe. Allumer exécute la commande, éteindre la commande d'arrêt, et avec paramètres la luminosité est transmise.",
+    "各コマンドはホームアプリに照明として表示されます。オンでコマンド、オフでオフコマンドを実行し、パラメーター許可時は明るさを渡します。",
+    "Ogni comando appare nell'app Casa come una luce. Accendere esegue il comando, spegnere il comando di spegnimento e, con i parametri, viene passata la luminosità.",
+  ],
+  "Bridge name": ["Nombre del puente", "Nome da ponte", "Bridge-Name", "Nom du pont", "ブリッジ名", "Nome del bridge"],
+  "Pairing PIN": ["PIN de vinculación", "PIN de pareamento", "Kopplungs-PIN", "PIN d'appairage", "ペアリング PIN", "PIN di abbinamento"],
+  "Bridge username (MAC-like)": ["Usuario del puente (tipo MAC)", "Usuário da ponte (tipo MAC)", "Bridge-Benutzername (MAC-artig)", "Identifiant du pont (type MAC)", "ブリッジのユーザー名（MAC 形式）", "Nome utente del bridge (tipo MAC)"],
+  "Debug logging": ["Registro de depuración", "Log de depuração", "Debug-Protokoll", "Journal de débogage", "デバッグログ", "Log di debug"],
+  "Setup code": ["Código de configuración", "Código de configuração", "Setup-Code", "Code de configuration", "セットアップコード", "Codice di configurazione"],
+  "Running on port {port} with {n} lights.": ["Funcionando en el puerto {port} con {n} luces.", "Rodando na porta {port} com {n} luzes.", "Läuft auf Port {port} mit {n} Lichtern.", "Actif sur le port {port} avec {n} lampes.", "ポート {port} で {n} 個の照明を公開中です。", "Attivo sulla porta {port} con {n} luci."],
+  "Paired with {n} controller(s).": ["Vinculado con {n} controlador(es).", "Pareado com {n} controlador(es).", "Mit {n} Steuergerät(en) gekoppelt.", "Appairé avec {n} contrôleur(s).", "{n} 台のコントローラーとペアリング済み。", "Abbinato a {n} controller."],
+  "Not paired yet. In the Home app choose Add Accessory → More options… and enter the setup code.": [
+    "Aún sin vincular. En la app Casa elige Añadir accesorio → Más opciones… e ingresa el código.",
+    "Ainda não pareado. No app Casa escolha Adicionar Acessório → Mais opções… e digite o código.",
+    "Noch nicht gekoppelt. In der Home-App Gerät hinzufügen → Weitere Optionen … wählen und den Code eingeben.",
+    "Pas encore appairé. Dans l'app Maison, choisissez Ajouter un accessoire → Plus d'options… puis saisissez le code.",
+    "未ペアリングです。ホームアプリで「アクセサリを追加」→「その他のオプション…」を選び、コードを入力してください。",
+    "Non ancora abbinato. Nell'app Casa scegli Aggiungi accessorio → Altre opzioni… e inserisci il codice.",
+  ],
+  "Not running.": ["No está funcionando.", "Não está rodando.", "Läuft nicht.", "Inactif.", "停止中です。", "Non attivo."],
+  "Turn it on and save to start the bridge.": ["Actívalo y guarda para iniciar el puente.", "Ative e salve para iniciar a ponte.", "Aktivieren und speichern, um die Bridge zu starten.", "Activez-le et enregistrez pour démarrer le pont.", "有効にして保存するとブリッジが起動します。", "Attivalo e salva per avviare il bridge."],
+
+  // Wake-on-LAN
+  "Alexa Wake-on-LAN": ["Wake-on-LAN para Alexa", "Wake-on-LAN da Alexa", "Alexa Wake-on-LAN", "Wake-on-LAN pour Alexa", "Alexa Wake-on-LAN", "Wake-on-LAN per Alexa"],
+  "Detected network adapter MAC address(es), reported to TRIGGERcmd if enabled below:": [
+    "Direcciones MAC detectadas, que se envían a TRIGGERcmd si lo activas abajo:",
+    "Endereços MAC detectados, enviados ao TRIGGERcmd se ativado abaixo:",
+    "Erkannte MAC-Adressen, die an TRIGGERcmd gemeldet werden, wenn du es unten aktivierst:",
+    "Adresses MAC détectées, transmises à TRIGGERcmd si vous l'activez ci-dessous :",
+    "検出された MAC アドレス（下で有効にすると TRIGGERcmd に送信）:",
+    "Indirizzi MAC rilevati, inviati a TRIGGERcmd se attivi l'opzione qui sotto:",
+  ],
+  "None detected": ["No se detectó ninguna", "Nenhum detectado", "Keine erkannt", "Aucune détectée", "検出されません", "Nessuno rilevato"],
+  "Enable Alexa Wake-on-LAN for this computer": ["Activar Wake-on-LAN de Alexa en este equipo", "Ativar o Wake-on-LAN da Alexa neste computador", "Alexa Wake-on-LAN für diesen Computer aktivieren", "Activer le Wake-on-LAN Alexa pour cet ordinateur", "このコンピューターで Alexa Wake-on-LAN を有効にする", "Attiva Wake-on-LAN di Alexa per questo computer"],
+  "Saved and reported to TRIGGERcmd.": ["Guardado y enviado a TRIGGERcmd.", "Salvo e enviado ao TRIGGERcmd.", "Gespeichert und an TRIGGERcmd gemeldet.", "Enregistré et transmis à TRIGGERcmd.", "保存して TRIGGERcmd に送信しました。", "Salvato e inviato a TRIGGERcmd."],
+  "Alexa can then wake this computer with \"Alexa, turn on <computer>\". Wake-on-LAN must also be enabled in its firmware and network adapter.": [
+    'Alexa podrá encender este equipo con "Alexa, enciende <equipo>". Wake-on-LAN también debe estar activado en el firmware y el adaptador de red.',
+    'A Alexa poderá ligar este computador com "Alexa, ligue <computador>". O Wake-on-LAN também precisa estar ativo no firmware e no adaptador de rede.',
+    "Alexa kann diesen Computer dann mit „Alexa, schalte <Computer> ein“ wecken. Wake-on-LAN muss auch in Firmware und Netzwerkadapter aktiviert sein.",
+    "Alexa pourra réveiller cet ordinateur avec « Alexa, allume <ordinateur> ». Le Wake-on-LAN doit aussi être activé dans le firmware et la carte réseau.",
+    "「アレクサ、<コンピューター>をつけて」で起動できます。ファームウェアとネットワークアダプターでも Wake-on-LAN を有効にしてください。",
+    'Alexa potrà accendere questo computer con "Alexa, accendi <computer>". Il Wake-on-LAN va attivato anche nel firmware e nella scheda di rete.',
+  ],
+};
+
+let lang = "en";
+
+export function setLang(code: string) {
+  lang = code;
+  document.documentElement.lang = code === "jp" ? "ja" : code;
+}
+
+export function t(key: string, vars: Record<string, string | number> = {}): string {
+  const index = ORDER.indexOf(lang as (typeof ORDER)[number]);
+  const text = index >= 0 ? (TABLE[key]?.[index] ?? key) : key;
+  return text.replace(/\{(\w+)\}/g, (_, name) => String(vars[name] ?? `{${name}}`));
+}

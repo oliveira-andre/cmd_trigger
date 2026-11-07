@@ -1,0 +1,10 @@
+node_modules/
+dist/
+target/
+.dev-data/
+src-tauri/gen/
+.DS_Store
+deploy/.env
+*.db
+*.db-wal
+*.db-shm

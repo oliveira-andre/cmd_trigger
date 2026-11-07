@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>CmdTrigger talks to your computers on your Wi-Fi to run their commands and routines, and wakes them from sleep.</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_cmdtrigger._tcp</string>
+	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Scan the pairing QR code your computer shows.</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<!-- Your computers on the Wi-Fi (their traffic is sealed end to end), and a server you
+		     run at home by IP address while you try it out. -->
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+	</dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>app.cmdtrigger.ios.pair</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>cmdtrigger</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

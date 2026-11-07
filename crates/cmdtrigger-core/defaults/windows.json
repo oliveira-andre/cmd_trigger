@@ -1,0 +1,6 @@
+[
+ {"name": "Calculator", "command": "calc", "ground": "foreground", "allowParams": false, "icon": "🧮"},
+ {"name": "Notepad", "command": "notepad", "ground": "foreground", "allowParams": false, "icon": "📝"},
+ {"name": "Open a website", "command": "start \"\"", "ground": "foreground", "allowParams": true, "quoteParams": true, "description": "Opens the web address given as the parameter in the default browser", "icon": "🌐"},
+ {"name": "Reboot in 10 seconds", "command": "shutdown /r /t 10", "ground": "background", "allowParams": false, "icon": "🔄"}
+]

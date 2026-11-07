@@ -1,0 +1,33 @@
+# The CmdTrigger server behind Caddy, which gets and renews the HTTPS certificate.
+# Copy .env.example to .env and set CMDTRIGGER_DOMAIN first. See the README's deploy section.
+services:
+  server:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    restart: unless-stopped
+    environment:
+      # Unset: only the first account can sign up (yours). "true": anyone. "false": nobody.
+      CMDTRIGGER_ALLOW_SIGNUP: ${CMDTRIGGER_ALLOW_SIGNUP:-}
+    volumes:
+      - server-data:/data
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    depends_on:
+      - server
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      CMDTRIGGER_DOMAIN: ${CMDTRIGGER_DOMAIN:?set CMDTRIGGER_DOMAIN in deploy/.env}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+
+volumes:
+  server-data:
+  caddy-data:
+  caddy-config:

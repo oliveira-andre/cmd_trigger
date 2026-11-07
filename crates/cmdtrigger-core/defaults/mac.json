@@ -1,0 +1,6 @@
+[
+ {"name": "Calculator", "command": "open -a Calculator", "ground": "foreground", "allowParams": false, "icon": "🧮"},
+ {"name": "Open a website", "command": "open", "ground": "foreground", "allowParams": true, "description": "Opens the web address given as the parameter in the default browser", "icon": "🌐"},
+ {"name": "Sleep display", "command": "pmset displaysleepnow", "ground": "foreground", "allowParams": false, "icon": "🌙"},
+ {"name": "Say", "command": "say", "ground": "foreground", "allowParams": true, "quoteParams": true, "description": "Speaks the parameter out loud", "icon": "🗣️"}
+]

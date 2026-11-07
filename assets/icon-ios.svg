@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- The app icon, full bleed for iOS (which rounds the corners itself). -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1A1A1A"/>
+      <stop offset="1" stop-color="#101010"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  <g transform="translate(512 512) scale(1.18) translate(-512 -512)">
+    <path d="M262 368 L438 512 L262 656" fill="none" stroke="#00D992" stroke-width="76" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="484" y="618" width="206" height="76" rx="38" fill="#00D992"/>
+    <path d="M640 342 A 120 120 0 0 1 760 462" fill="none" stroke="#00D992" stroke-width="44" stroke-linecap="round" opacity="0.9"/>
+    <path d="M640 236 A 226 226 0 0 1 866 462" fill="none" stroke="#00D992" stroke-width="44" stroke-linecap="round" opacity="0.55"/>
+    <circle cx="652" cy="452" r="30" fill="#00D992"/>
+  </g>
+</svg>

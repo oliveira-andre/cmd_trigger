@@ -1,0 +1,6 @@
+[
+ {"name": "Calculator", "command": "gnome-calculator", "ground": "foreground", "allowParams": false, "icon": "🧮"},
+ {"name": "Open a website", "command": "xdg-open", "ground": "foreground", "allowParams": true, "description": "Opens the web address given as the parameter in the default browser", "icon": "🌐"},
+ {"name": "Reboot", "command": "shutdown -r now", "ground": "background", "allowParams": false, "icon": "🔄"},
+ {"name": "Update packages", "command": "apt-get -y update", "ground": "background", "allowParams": false, "icon": "📦"}
+]

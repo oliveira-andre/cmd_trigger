@@ -1,0 +1,14 @@
+[package]
+name = "cmdtrigger-cli"
+description = "Headless CmdTrigger agent: console, background service, remote trigger"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "cmdtrigger"
+path = "src/main.rs"
+
+[dependencies]
+cmdtrigger-core = { path = "../cmdtrigger-core" }
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <!-- A menu bar agent: no Dock icon. -->
+  <key>LSUIElement</key>
+  <true/>
+  <key>NSLocalNetworkUsageDescription</key>
+  <string>CmdTrigger lets your iPhone and the Home app reach this Mac, talks to Home Assistant, and watches which network you are on for automations.</string>
+  <key>NSBonjourServices</key>
+  <array>
+    <string>_hap._tcp</string>
+    <string>_cmdtrigger._tcp</string>
+  </array>
+</dict>
+</plist>

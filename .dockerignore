@@ -1,0 +1,6 @@
+target
+node_modules
+dist
+.dev-data
+src-tauri/gen
+deploy/.env

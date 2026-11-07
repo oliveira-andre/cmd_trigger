@@ -1,0 +1,7 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Every CmdTrigger window",
+  "windows": ["main"],
+  "permissions": ["core:default", "core:window:allow-close", "core:window:allow-set-title"]
+}

@@ -1,0 +1,30 @@
+[package]
+name = "cmdtrigger-app"
+description = "CmdTrigger: your own commands and automations, run from HomeKit, Home Assistant, webhooks, AI and your phone"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+# The `_lib` suffix keeps the lib name distinct from the bin name (cargo#8519 on Windows).
+name = "cmdtrigger_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[[bin]]
+name = "cmdtrigger-agent"
+path = "src/main.rs"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+cmdtrigger-core = { path = "../crates/cmdtrigger-core" }
+cmdtrigger-protocol = { path = "../crates/cmdtrigger-protocol" }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+tauri = { version = "2", features = ["image-png", "tray-icon"] }
+tauri-plugin-autostart = "2"
+tauri-plugin-opener = "2"
+tauri-plugin-single-instance = "2"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "sync", "time"] }
+tracing = "0.1"
